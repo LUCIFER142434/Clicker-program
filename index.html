@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cliker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(95deg, rgb(0, 26, 255), rgb(208, 0, 255));
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            height: 100%;
+        }
+
+        header {
+            width: 40%;
+            display: flex;
+            justify-content: space-between;
+            margin: 70px auto;
+            /* разраб бехруз */
+        }
+
+        .header_box {
+            width: 100px;
+            height: 70px;
+            background: linear-gradient(45deg, rgb(208, 0, 255), red);
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid black;
+            padding-top: 20px;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .structura {
+            animation: structura_animashen 0.1s linear;
+        }
+
+        .clicbox {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgb(0, 0, 0), rgb(255, 255, 255));
+            border: 5px solid blue;
+        }
+
+        @keyframes structura_animashen {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        footer {
+            margin: 50px auto;
+            text-align: center;
+        }
+        .footer_box{
+            margin: 20px;
+            width: 150px;
+            height: 70px;
+            font-size: 15px;
+            background: linear-gradient(30deg, rgb(34, 0, 255,0.3), rgb(26, 255, 0,0.3));
+            border-radius: 20px;
+        }
+        @media (max-width: 500px) {
+            footer{
+                margin: 0;
+            }
+            header{
+                text-align: center;
+                display: block;
+                margin: 30px auto;
+            }
+            .header_box{
+                width: 90%;
+                height: 40px;
+                padding: 10px;
+            }
+        }
+        @media (max-width: 300px) {
+            footer{
+                margin: 0;
+            }
+            .footer_box{
+                margin: 10px;
+            }
+            .clicbox{
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+    <header>
+        <div class="header_box" id="rang"></div>
+        <div class="header_box" id="schot"></div>
+        <div class="header_box" id="priblchas"></div>
+    </header>
+    <main>
+        <div id="structura">
+            <div class="clicbox" id="clicbox"></div>
+        </div>
+    </main>
+    <footer>
+        <button class="footer_box" id="priblchasplus">Upgrade : 100</button>
+        <button class="footer_box" id="maxclick">Upgrade Click : 100</button>
+    </footer>
+    <script>
+        let rang = document.getElementById("rang")
+        rang.innerHTML = "Bronza"
+        //Schot
+        let num = 0
+        let schot = document.getElementById("schot")
+        let a = "разраб бехруз"
+        schot.innerHTML = num
+        const clicbox = document.getElementById("clicbox")
+
+
+        let priblchas = document.getElementById("priblchas")
+        let goldtime = 0
+        let paypriblchas = 100
+        priblchas.innerHTML = goldtime
+        let priblchasplus = document.getElementById("priblchasplus")
+
+        let structura = document.getElementById("structura")
+
+
+        let maxclick = document.getElementById("maxclick")
+        let goldclick = 1
+        let paymaxclick = 100
+        //разраб бехруз
+
+        
+        priblchasplus.addEventListener("click", function () {
+            if (num >= paypriblchas) {
+                num -= paypriblchas
+                goldtime += 1
+                paypriblchas += paypriblchas
+                priblchas.innerHTML = goldtime
+                priblchasplus.textContent = "Upgrade : " + paypriblchas
+            }
+        })
+        
+        setInterval(() => {
+            if (num >= paypriblchas) {
+                priblchasplus.style.background = "linear-gradient(30deg, rgb(34, 0, 255), rgb(26, 255, 0))"
+            }else{
+                priblchasplus.style.background = "linear-gradient(30deg, rgb(34, 0, 255,0.5), rgb(26, 255, 0,0.5))"
+            }
+        }, 10);
+
+
+        maxclick.addEventListener("click", function () {
+            if (num >= paymaxclick) {
+                num -= paymaxclick
+                goldclick += 1
+                paymaxclick += paymaxclick
+                
+                maxclick.textContent = "Upgrade Click : " + paymaxclick
+            }
+        })
+
+        setInterval(()=>{
+            if (num >= paymaxclick) {
+                maxclick.style.background = "linear-gradient(30deg, rgb(34, 0, 255), rgb(26, 255, 0))"
+            }else{
+                maxclick.style.background = "linear-gradient(30deg, rgb(34, 0, 255,0.5), rgb(26, 255, 0,0.5))"
+            }
+        },10);
+
+    
+        clicbox.addEventListener("click", function () {
+            num += goldclick
+            schot.innerHTML = num
+            if (structura != "structura") {
+                structura.classList.add("structura")
+            }
+        })
+        schot.innerHTML = num
+        setInterval(() => {
+            num += goldtime
+            schot.innerHTML = num
+            if (num >= 10000) {
+                rang.innerHTML = "Diamond"
+            }else if (num >= 1000) {
+                rang.innerHTML = "Gold"
+            } else if (num >= 100) {
+                rang.innerHTML = "Silver"
+            }else{
+                rang.innerHTML = "Bronza"
+            }
+        }, 1000)
+        setInterval(() => {
+            structura.classList.remove("structura")
+        }, 100);
+    </script>
+</body>
+
+</html>
