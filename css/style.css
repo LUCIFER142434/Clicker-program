@@ -1,0 +1,157 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(95deg, rgb(0, 26, 255), rgb(208, 0, 255));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    height: 100%;
+}
+/* Header start */
+header {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    margin: 70px auto;
+    /* разраб бехруз */
+}
+
+.header_box {
+    width: 100px;
+    height: 70px;
+    background: linear-gradient(45deg, rgb(208, 0, 255), red);
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid black;
+    padding-top: 20px;
+}
+.menu{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.menu_content{
+    background: rgb(0, 0, 0,0.7);
+    width: 300px;
+    height: 500px;
+    padding: 10px;
+}
+.menu_content img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.del{
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    margin-left: 95%;
+}
+
+/* Header end */
+/* Main start */
+main {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.structura {
+    animation: structura_animashen 0.1s linear;
+}
+
+.skins1 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: url(../img/sss.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.skins2{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: url(../img/skins1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.skins3{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: url(../img/skins2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@keyframes structura_animashen {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+/* Main end */
+/* footer start */
+footer {
+    margin: 50px auto;
+    text-align: center;
+}
+.footer_box{
+    margin: 20px;
+    width: 150px;
+    height: 70px;
+    font-size: 15px;
+    background: linear-gradient(30deg, rgb(34, 0, 255,0.3), rgb(26, 255, 0,0.3));
+    border-radius: 20px;
+}
+/* footer end */
+
+/* Adoptivka or @Media */
+@media (max-width: 500px) {
+    footer{
+        margin: 0;
+    }
+    header{
+        display: block;
+        margin: 30px auto;
+    }
+    .header_box{
+        width: 90%;
+        height: 40px;
+        padding: 10px;
+    }
+    .menu_content{
+        width: 200px;
+    }
+    table{
+        width: 190px;
+    }
+}
+@media (max-width: 300px) {
+    footer{
+        margin: 0;
+    }
+    .footer_box{
+        margin: 10px;
+    }
+    .skins1,.skins2,.skins3{
+        width: 200px;
+        height: 200px;
+    }
+}

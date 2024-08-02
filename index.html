@@ -4,128 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cliker</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Catclicker</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(95deg, rgb(0, 26, 255), rgb(208, 0, 255));
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            color: white;
-            height: 100%;
-        }
-
-        header {
-            width: 40%;
-            display: flex;
-            justify-content: space-between;
-            margin: 70px auto;
-            /* разраб бехруз */
-        }
-
-        .header_box {
-            width: 100px;
-            height: 70px;
-            background: linear-gradient(45deg, rgb(208, 0, 255), red);
-            border-radius: 10px;
-            text-align: center;
-            border: 2px solid black;
-            padding-top: 20px;
-        }
-
-        main {
-            display: flex;
-            justify-content: space-evenly;
-        }
-
-        .structura {
-            animation: structura_animashen 0.1s linear;
-        }
-
-        .clicbox {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            /* background: linear-gradient(45deg, rgb(0, 0, 0), rgb(255, 255, 255)); */
-            background: url(sss.jpg);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            border: 5px solid blue;
-        }
-
-        @keyframes structura_animashen {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        footer {
-            margin: 50px auto;
-            text-align: center;
-        }
-        .footer_box{
-            margin: 20px;
-            width: 150px;
-            height: 70px;
-            font-size: 15px;
-            background: linear-gradient(30deg, rgb(34, 0, 255,0.3), rgb(26, 255, 0,0.3));
-            border-radius: 20px;
-        }
-        @media (max-width: 500px) {
-            footer{
-                margin: 0;
-            }
-            header{
-                text-align: center;
-                display: block;
-                margin: 30px auto;
-            }
-            .header_box{
-                width: 90%;
-                height: 40px;
-                padding: 10px;
-            }
-        }
-        @media (max-width: 300px) {
-            footer{
-                margin: 0;
-            }
-            .footer_box{
-                margin: 10px;
-            }
-            .clicbox{
-                width: 200px;
-                height: 200px;
-            }
-        }
-    </style>
     <header>
+        <div class="menu">
+            <button id="menu_btn">Menu</button>
+            <div class="menu_content" id="menu_content">
+                <button class="del" id="del">X</button>
+                <h4>Skins</h4><br><br>
+                <table width="300px">
+                    <tr>
+                        <td>Cat skins</td>
+                        <td><img src="img/sss.jpg" alt="" onclick=""></td>
+                        <td><button id="skins1">ON</button></td>
+                    </tr>
+                    <tr>
+                        <td>RGB skins</td>
+                        <td><img src="img/skins1.jpg" alt="" onclick=""></td>
+                        <td><button id="skins2">OFF</button><button id="buyskin2">100</button></td>
+                    </tr>
+                    <tr>
+                        <td>Pizza skins</td>
+                        <td><img src="img/skins2.jpg" alt="" onclick=""></td>
+                        <td><button id="skins3">OFF</button><button id="buyskin3">1000</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
         <div class="header_box" id="rang"></div>
         <div class="header_box" id="schot"></div>
         <div class="header_box" id="priblchas"></div>
     </header>
     <main>
         <div id="structura">
-            <div class="clicbox" id="clicbox"></div>
+            <div class="skins1" id="clicbox"></div>
         </div>
     </main>
     <footer>
@@ -220,6 +135,66 @@
         setInterval(() => {
             structura.classList.remove("structura")
         }, 100);
+        // Menu Start
+        let menu_btn = document.getElementById("menu_btn")
+        let menu_content = document.getElementById("menu_content")
+        let del = document.getElementById("del")
+
+        menu_content.hidden = true
+        menu_btn.addEventListener("click",function(){
+            menu_content.hidden = false
+            menu_btn.hidden = true
+        })
+        del.addEventListener("click",function(){
+            menu_content.hidden = true
+            menu_btn.hidden = false
+        })
+        // Skins Start
+        let skins1 = document.getElementById("skins1")
+        let skins2 = document.getElementById("skins2")
+        let skins3 = document.getElementById("skins3")
+
+        skins1.addEventListener("click", function(){
+            skins1.textContent = "ON"
+            skins2.textContent = "OFF"
+            skins3.textContent = "OFF"
+            clicbox.className = "skins1"
+        })
+        skins2.addEventListener("click", function(){
+            skins1.textContent = "OFF"
+            skins2.textContent = "ON"
+            skins3.textContent = "OFF"
+            clicbox.className = "skins2"
+        })
+        skins3.addEventListener("click", function(){
+            skins1.textContent = "OFF"
+            skins2.textContent = "OFF"
+            skins3.textContent = "ON"
+            clicbox.className = "skins3"
+        })
+
+
+
+        let buyskin2 = document.getElementById("buyskin2")
+        let buyskin3 = document.getElementById("buyskin3")
+
+        skins2.hidden = true
+        skins3.hidden = true
+
+        buyskin2.addEventListener("click", function(){
+            if (num >= 100) {
+                buyskin2.hidden = true
+                skins2.hidden = false
+                num -= 100
+            }
+        })
+        buyskin3.addEventListener("click", function(){
+            if (num >= 1000) {
+                buyskin3.hidden = true
+                skins3.hidden = false
+                num -= 1000
+            }
+        })
     </script>
 </body>
 
