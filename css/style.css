@@ -133,14 +133,19 @@ footer {
     }
     .header_box{
         width: 90%;
-        height: 40px;
-        padding: 10px;
+        height: 30px;
+        padding: 5px;
     }
     .menu_content{
         width: 200px;
     }
     table{
         width: 190px;
+    }
+    .footer_box{
+        width: 80px;
+        height: 40px;
+        font-size: 10px;
     }
 }
 @media (max-width: 300px) {
