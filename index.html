@@ -18,18 +18,33 @@
                 <table width="300px">
                     <tr>
                         <td>Cat skins</td>
-                        <td><img src="img/sss.jpg" alt="" onclick=""></td>
+                        <td><img src="img/skins1.jpg" alt="" onclick=""></td>
                         <td><button id="skins1">ON</button></td>
                     </tr>
                     <tr>
                         <td>RGB skins</td>
-                        <td><img src="img/skins1.jpg" alt="" onclick=""></td>
+                        <td><img src="img/skins2.jpg" alt="" onclick=""></td>
                         <td><button id="skins2">OFF</button><button id="buyskin2">100</button></td>
                     </tr>
                     <tr>
                         <td>Pizza skins</td>
-                        <td><img src="img/skins2.jpg" alt="" onclick=""></td>
+                        <td><img src="img/skins3.jpg" alt="" onclick=""></td>
                         <td><button id="skins3">OFF</button><button id="buyskin3">1000</button></td>
+                    </tr>
+                    <tr>
+                        <td>Ibragim skins</td>
+                        <td><img src="img/skins4.jpg" alt="" onclick=""></td>
+                        <td><button id="skins4">OFF</button><button id="buyskin4">1000000</button></td>
+                    </tr>
+                    <tr>
+                        <td>Batya skins</td>
+                        <td><img src="img/skins5.jpg" alt="" onclick=""></td>
+                        <td><button id="skins5">OFF</button><button id="buyskin5">1500</button></td>
+                    </tr>
+                    <tr>
+                        <td>Stonks skins</td>
+                        <td><img src="img/skins6.jpg" alt="" onclick=""></td>
+                        <td><button id="skins6">OFF</button><button id="buyskin6">3000</button></td>
                     </tr>
                 </table>
             </div>
@@ -231,33 +246,84 @@
         let skins1 = document.getElementById("skins1")
         let skins2 = document.getElementById("skins2")
         let skins3 = document.getElementById("skins3")
+        let skins4 = document.getElementById("skins4")
+        let skins5 = document.getElementById("skins5")
+        let skins6 = document.getElementById("skins6")
+
 
         skins1.addEventListener("click", function () {
-            skins1.textContent = "ON"
-            skins2.textContent = "OFF"
-            skins3.textContent = "OFF"
             clicbox.className = "skins1"
         })
         skins2.addEventListener("click", function () {
-            skins1.textContent = "OFF"
-            skins2.textContent = "ON"
-            skins3.textContent = "OFF"
             clicbox.className = "skins2"
         })
         skins3.addEventListener("click", function () {
-            skins1.textContent = "OFF"
-            skins2.textContent = "OFF"
-            skins3.textContent = "ON"
             clicbox.className = "skins3"
         })
-
+        skins4.addEventListener("click", function () {
+            clicbox.className = "skins4"
+        })
+        skins5.addEventListener("click", function () {
+            clicbox.className = "skins5"
+        })
+        skins6.addEventListener("click", function () {
+            clicbox.className = "skins6"
+        })
+        setInterval(()=>{
+            if (clicbox.classList.contains("skins1")) {
+                skins1.textContent = "ON"
+            }else{
+                skins1.textContent = "OFF"
+            }
+        },10)
+        setInterval(()=>{
+            if (clicbox.classList.contains("skins2")) {
+                skins2.textContent = "ON"
+            }else{
+                skins2.textContent = "OFF"
+            }
+        },10)
+        setInterval(()=>{
+            if (clicbox.classList.contains("skins3")) {
+                skins3.textContent = "ON"
+            }else{
+                skins3.textContent = "OFF"
+            }
+        },10)
+        setInterval(()=>{
+            if (clicbox.classList.contains("skins4")) {
+                skins4.textContent = "ON"
+            }else{
+                skins4.textContent = "OFF"
+            }
+        },10)
+        setInterval(()=>{
+            if (clicbox.classList.contains("skins5")) {
+                skins5.textContent = "ON"
+            }else{
+                skins5.textContent = "OFF"
+            }
+        },10)
+        setInterval(()=>{
+            if (clicbox.classList.contains("skins6")) {
+                skins6.textContent = "ON"
+            }else{
+                skins6.textContent = "OFF"
+            }
+        },10)
 
 
         let buyskin2 = document.getElementById("buyskin2")
         let buyskin3 = document.getElementById("buyskin3")
+        let buyskin4 = document.getElementById("buyskin4")
+        let buyskin5 = document.getElementById("buyskin5")
+        let buyskin6 = document.getElementById("buyskin6")
 
         skins2.hidden = true
         skins3.hidden = true
+        skins4.hidden = true
+        skins5.hidden = true
+        skins6.hidden = true
 
         buyskin2.addEventListener("click", function () {
             if (num >= 100) {
@@ -271,6 +337,27 @@
                 buyskin3.hidden = true
                 skins3.hidden = false
                 num -= 1000
+            }
+        })
+        buyskin4.addEventListener("click", function () {
+            if (num >= 1000000) {
+                buyskin4.hidden = true
+                skins4.hidden = false
+                num -= 1000000
+            }
+        })
+        buyskin5.addEventListener("click", function () {
+            if (num >= 1500) {
+                buyskin5.hidden = true
+                skins5.hidden = false
+                num -= 1500
+            }
+        })
+        buyskin6.addEventListener("click", function () {
+            if (num >= 3000) {
+                buyskin6.hidden = true
+                skins6.hidden = false
+                num -= 3000
             }
         })
     </script>
